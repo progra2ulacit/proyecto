@@ -1,6 +1,9 @@
 """This module executes actions."""
-import Passwd as pwd
-import Usuario as u
+from Passwd import Passwd
+from Usuario import Usuario
+
+pwd = Passwd()
+u = Usuario()
 
 def create_username(username, password):
     """executes create user action"""
@@ -41,7 +44,7 @@ def edit_user():
         if ask_y_n("Desea modificar el nombre de usuario?"):
             username = input("Ingrese el nuevo nombre de usuario:\n ")
             u.update_username(user, username)
-
+            return True
         if ask_y_n("Desea modificar el password del usuario?"):
             password1 = input("Ingrese el nuevo password de usuario:\n ")
             if pwd.validatePwd(password1):
@@ -84,7 +87,11 @@ def main():
         
         if choice == "5":
             print("Opcion Pendiente")
-            second_menu()
+            #print(u.check_password("Raptor2017++", "$pbkdf2-sha256$20000$mZOyllLqPQcghHCOsfbeOw$qU5Ft.J2se.x/WEez.QwF4Gele9x9sL6jEvKvOOkxNg"))
+            usuario = input("usuario")
+            passwd = input("pass")
+            u.validate_login(usuario, passwd)
+            #second_menu()
         elif choice == "4":
             print_user_list()
             print("Digite \"Enter\" para continuar: ")
