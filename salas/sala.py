@@ -9,18 +9,23 @@ class salas():
         self.sala = lista
         self.peliculas = {}
 
+    '''funcion que retorna el nombre de la sala'''
     def get_nombre(self):
         return self.nombres
 
+    '''funcion que retorna el nombre del cine en la sala'''
     def get_cine(self):
         return self.cine
 
+    '''funcion que retorna la capacidad total de la sala'''
     def get_capacidad_total(self):
         return self.capacidadT
 
+    '''funcion que retorna la capacidad disponible de la sala'''
     def get_capacidad_disponible(self):
         return self.capacidadD
 
+    '''funcion que retorna el nombre de las llaves de la sala por cines'''
     def get_salas(self, cine, nombrecine):
         string = ""
         if len(cine) != 0:
@@ -33,9 +38,11 @@ class salas():
         
         return string
 
+    '''funcion que retorna las sala por diccionario'''
     def get_salasCompletas(self): 
         return (self.sala)
 
+    '''funcion que crea las sala'''
     def set_salas(self, peliculas):
         self.peliculas = peliculas
         datos = []
@@ -46,6 +53,7 @@ class salas():
         datos.append(self.peliculas)
         self.sala.setdefault(self.nombres, datos)
 
+    '''funcion que edita el nombre del cine de la sala'''
     def set_editar_salas_cine(self, nombresala, editado, cines, nombrecine):
         dato = []
         for x in cines.keys():
@@ -60,6 +68,7 @@ class salas():
                         dato.append(valor[4])
                         cines[x][4].setdefault(nombresala, dato)
 
+    '''funcion que edita la capacidad total de la sala'''
     def set_editar_salas_capacidadT(self, nombresala, editado, cines, nombrecine):
         dato = []
         for x in cines.keys():
@@ -74,6 +83,7 @@ class salas():
                         dato.append(valor[4])
                         cines[x][4].setdefault(nombresala, dato)
 
+    '''funcion que edita la capacidad disponible de la sala'''
     def set_editar_salas_capacidadD(self, nombresala, editado, cines, nombrecine):
         dato = []
         for x in cines.keys():
@@ -88,6 +98,7 @@ class salas():
                         dato.append(valor[4])
                         cines[x][4].setdefault(nombresala, dato)
         
+    '''funcion que edita el nombre de la sala'''
     def set_editar_salas_nombre(self, nombresala, editado, cines, nombrecine):
         dato = []
         for x in cines.keys():
@@ -102,7 +113,8 @@ class salas():
                         dato.append(valor[4])
                         
                         cines[x][4].setdefault(editado, dato)
-                
+
+    '''funcion que borra la sala'''      
     def set_borrarsalascine(self, nombre, cines, nombrecine):
         for x in cines.keys():
             if x == nombrecine:
