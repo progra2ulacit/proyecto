@@ -1,6 +1,7 @@
 """This module executes actions."""
 from Passwd import Passwd
-from Usuario import Usuario
+
+from usuario.Usuario import Usuario
 
 pwd = Passwd()
 u = Usuario()
@@ -74,7 +75,11 @@ def main():
         print("2. Editar Usuario")
         print("3. Eliminar Usuario")
         print("4. Listar Usuarios")
-        print("5. to go to another menu")
+        print("5. Crear nuevo Usuario Final")
+        print("6. Reiniciar password Usuario Final")
+        print("7. Listar Usuarios Finales")
+
+
         print("0. Salir")
 
         choice = input ("\nDigite su opcion:")
@@ -84,14 +89,36 @@ def main():
                 print("\nValor ingresado no corresponde a ninguna opcion, por favor intentelo de nuevo\n\n")
                 main()
 
-        
-        if choice == "5":
-            print("Opcion Pendiente")
-            #print(u.check_password("Raptor2017++", "$pbkdf2-sha256$20000$mZOyllLqPQcghHCOsfbeOw$qU5Ft.J2se.x/WEez.QwF4Gele9x9sL6jEvKvOOkxNg"))
-            usuario = input("usuario")
-            passwd = input("pass")
-            u.validate_login(usuario, passwd)
-            #second_menu()
+        if choice == "7":
+            print(u.show_final_users())
+            print("Digite \"Enter\" para continuar: ")
+            input()
+            main()
+        elif choice == "6":
+            username = input("Digite el usuario al que desea reiniciarle el password\n")
+            u.final_user_pass_generate(username)
+            print("Digite \"Enter\" para continuar: ")
+            input()
+            main()
+        elif choice == "5":
+            username = input("Digite el usuario que desea agregar\n")
+            password = input("Digite el password del usuario "+username+"\n")
+            confirm_password = input("Repita el password del usuario "+username+"\n")
+            if password != confirm_password:
+                print("Los passwords no coinciden, por favor intentelo nuevamente")
+                print("Digite Enter para continuar\n")
+                input()
+                main()
+            name = input("Digite el nombre del usuario "+username+"\n")
+            lastname = input("Digite el apellido del usuario "+username+"\n")
+            mail = input("Digite el correo del usuario "+username+"\n")
+            card_number = input("Digite el numero de tarjeta del usuario "+username+"\n")
+            card_exp = input("Digite la fecha de expiracion de la tarjeta del usuario "+username+"\n")
+            cvn = input("Digite el codigo de tarjeta del usuario "+username+"\n")
+            u.add_final_user(username, password, name, lastname, mail, card_number, card_exp, cvn)
+            print("Digite \"Enter\" para continuar: ")
+            input()
+            main()
         elif choice == "4":
             print_user_list()
             print("Digite \"Enter\" para continuar: ")
@@ -120,8 +147,6 @@ def main():
             main()
             
 
-def second_menu():
-    print("This is the second menu")
 
 
 main()
