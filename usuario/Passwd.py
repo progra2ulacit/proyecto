@@ -1,4 +1,3 @@
-
 class Passwd():
     """Clase password para validaciones"""
     def validatePwd(self, password):

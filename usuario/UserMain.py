@@ -155,4 +155,3 @@ main()
 #print(u.check_password("Raptor2017++", "$pbkdf2-sha256$20000$mZOyllLqPQcghHCOsfbeOw$qU5Ft.J2se.x/WEez.QwF4Gele9x9sL6jEvKvOOkxNg"))
 
 #input()
-        

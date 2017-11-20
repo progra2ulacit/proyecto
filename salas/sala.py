@@ -1,6 +1,4 @@
-'''from cines import cines'''
-
-class salas():
+class sala():
     def __init__(self, nombre, cine, capacidadtotal, capacidaddisponible, lista):
         self.nombres = nombre
         self.cine = cine
@@ -123,24 +121,4 @@ class salas():
                         del(cines[nombrecine][4][nombre]) 
                         break
             break
-                    
-
-'''if __name__ == "__main__":
-    
-    salass = {}
-    sala = salas("sala 1", "paseo de las flores", 10, 10, salass)
-
-
-    sala = salas("sala 1", "paseo de las flores", 10, 10)
-    print(sala.get_nombre())
-    sala.set_salas({"pelicula 1" : [{'pancho': []}]})
-    print(sala.get_salas())
-    sala.set_editar_salas_nombre("sala 1", "sala 2")
-    print(sala.get_salas())
-    sala.set_editar_salas_cine("sala 2", "paseo")
-    print(sala.get_salas())
-    sala.set_editar_salas_capacidadT("sala 2", 28)
-    print(sala.get_salas())
-    sala.set_borrarcine("sala 2")
-    print(sala.get_salas())'''
-
+  
