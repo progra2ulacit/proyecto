@@ -108,9 +108,10 @@ class Usuario():
     
     def validate_login(self, username, password):
         if self.check_password(password, self.USERLOGINS[username][1]) == True:
-            print("Se valido correctamente")
             return True
             #aqui se envia a la opcion interna de salas o carteleras
+        else:
+            return False
             
     """"Usuarios finales"""
 
